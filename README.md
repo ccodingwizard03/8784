@@ -1,6 +1,8 @@
 ## Installation
 
 ```bash
+$ git clone https://github.com/ccodingwizard03/8784.git
+$ cd 8784
 $ npm install
 ```
 
