@@ -1,4 +1,5 @@
 import axios from 'axios';
+import 'dotenv/config';
 
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
 const BASE_ID = process.env.BASE_ID;
@@ -34,7 +35,7 @@ export const saveInstagramData = async (data: any): Promise<void> => {
           fields: {
             Link: element.link,
             Views: element.views,
-            Profiles: [profileId]
+            InstagramProfiles: [profileId]
           },
         },
         {
@@ -73,7 +74,7 @@ export const deleteProfiles = async (): Promise<void> => {
     const batch = records.splice(0, 10);
     const deletePromises = batch.map((record: any) => {
       return axios.delete(
-        `https://api.airtable.com/v0/${BASE_ID}/${PROFILE_ID}`,
+        `https://api.airtable.com/v0/${BASE_ID}/${PROFILE_ID}/${record.id}`,
         {
           headers: {
             Authorization: `Bearer ${ACCESS_TOKEN}`,
@@ -108,7 +109,7 @@ export const deleteReels = async (): Promise<void> => {
     const batch = records.splice(0, 10);
     const deletePromises = batch.map((record: any) => {
       return axios.delete(
-        `https://api.airtable.com/v0/${BASE_ID}/${REELS_ID}`,
+        `https://api.airtable.com/v0/${BASE_ID}/${REELS_ID}${record.id}`,
         {
           headers: {
             Authorization: `Bearer ${ACCESS_TOKEN}`,

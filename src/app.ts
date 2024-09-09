@@ -34,6 +34,10 @@ import { saveInstagramData, deleteProfiles, deleteReels } from './airtable-api';
     await password.sendKeys('your password'); // change credentials
     await submit.click();
     await driver.sleep(20000);
+
+
+    await deleteProfiles();
+    await deleteReels();
   } catch (error: any) {
     console.error(error);
   }
@@ -44,9 +48,6 @@ import { saveInstagramData, deleteProfiles, deleteReels } from './airtable-api';
     for (let i = 0; i < list.length; i++) {
       const url = list[i];
       try {
-        await deleteProfiles();
-        await deleteReels();
-
         await driver.get(url);
         await driver.sleep(10000);
 
