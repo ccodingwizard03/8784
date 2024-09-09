@@ -6,7 +6,7 @@ $ npm install
 
 ## Config
 
-after start scraping process
+After starting
 1. copy.env.example file
 2. rename copied .env.example to .env
 3. set your credentials in .env file
