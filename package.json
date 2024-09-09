@@ -23,5 +23,8 @@
   "devDependencies": {
     "@types/selenium-webdriver": "^4.1.25",
     "ts-node": "^10.9.2"
+  },
+  "engines": {
+    "node": "20.11.1"
   }
 }
